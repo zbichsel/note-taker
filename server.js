@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { clog } = require('./middlware/clog');
-const api = require('./public/assets/index.js');
+const api = require('./routes/index.js');
 
 const PORT = process.env.PORT || 3001;
 
@@ -20,7 +20,7 @@ app.get('/', (req, res) =>
 );
 
 app.get('/notes', (req, res) => 
-    res.sendFile(path.join(__dirname, '/public/notes.html'))
+    res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
 );
 
 app.listen(PORT, () =>
