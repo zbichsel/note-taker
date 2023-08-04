@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { clog } = require('./middlware/clog');
+const { clog } = require('./middleware/clog');
 const api = require('./routes/index.js');
 
 const PORT = process.env.PORT || 3001;
@@ -16,7 +16,7 @@ app.use('/api', api);
 app.use(express.static('public'));
 
 app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/index.html'))
+    res.sendFile(path.join(__dirname, '/public/pages/index.html'))
 );
 
 app.get('/notes', (req, res) => 
@@ -24,5 +24,5 @@ app.get('/notes', (req, res) =>
 );
 
 app.listen(PORT, () =>
-    console.log(`App listening at https://localhost:${PORT} 🚀`)
+    console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
